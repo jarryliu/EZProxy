@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Junjie Liu</string>
+	<key>Builder Version</key>
+	<string>11601.1.50</string>
+	<key>CFBundleDisplayName</key>
+	<string>EZProxy</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.liujarry.ezproxy</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Toolbar Items</key>
+		<array>
+			<dict>
+				<key>Command</key>
+				<string>useProxy</string>
+				<key>Identifier</key>
+				<string>proxyButton</string>
+				<key>Image</key>
+				<string>images/icon.png</string>
+				<key>Include By Default</key>
+				<true/>
+				<key>Label</key>
+				<string>EZProxy</string>
+				<key>Palette Label</key>
+				<string>EZProxy</string>
+				<key>Tool Tip</key>
+				<string>Use EZProxy to aceess</string>
+			</dict>
+		</array>
+	</dict>
+	<key>Description</key>
+	<string>A safari extension for using EZProxy</string>
+	<key>DeveloperIdentifier</key>
+	<string>0000000000</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
