@@ -25,17 +25,13 @@ function extractDomain(url) {
 }
 
 // return true if the url is journal sites.
-function varlidateUrl(proxy, url) {
+function validateUrl(proxy, url) {
   // check if it's empty or already has proxy
-  if (!url || url.indexof(proxyList[proxy]) <= -1)
+  if (!url || url.indexOf(proxyList[proxy]) >= 0)
     return false;
-
   var domain = extractDomain(url);
-  // first check intersect journals, then check for individual proxy 
-  var found = intersect_journals.hasOwnProperty(domain);
-  if (!found && proxy_journals.hasOwnProperty(proxy))
-    found = proxy_journals[proxy].hasOwnProperty(domain);
-  return found
+  //  check if it's in the journal site list 
+  return proxy_journals.hasOwnProperty(extractDomain(url));
 }
 
 // return true if Ip is out of campus, i.e. need proxy

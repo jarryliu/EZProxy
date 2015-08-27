@@ -2,47 +2,40 @@
 <html>
 <head>
   <title>WashU Proxy</title>
-
+  <script src="scripts/proxy.js" type="text/javascript"></script>
+  <script src="scripts/journals.js" type="text/javascript"></script>
+  <script src="scripts/util.js" type="text/javascript"></script>
   <script type="text/javascript">
 
     // add listener to command and validate.
-    safari.application.addEventListener("beforeNavigate", autoReload, false);
+    safari.application.addEventListener("navigate", autoReload, false);
     safari.application.addEventListener("command", performCommand, false);
-    safari.application.addEventListener("validate", validateCommand, false);
 
     // set for the default proxy, default proxy is WUSTL.
     var selectedProxy = defaultProxy;
     var proxyUrl = proxyList[selectedProxy];
+    var proxyDomain = proxyUrl;
 
     function autoReload(event){
-      //event.preventDefault();
-      var url = event.url;
-      if (validateUrl(selectedProxy, url))
-        event.url = addUrl(url);
+      //load proxy only in journal sites.
+      if (validateUrl(selectedProxy, event.target.url)){
+        event.target.url = addProxyUrl(event.target.url);
+      }
     }
 
     // Function to perform when event is received
     function performCommand(event) {
       // Make sure event comes from the button
-      if (event.command == "useProxy") {
+      if (event.command === "useProxy") {
           // get current active tab 
           var curTab = event.target.browserWindow.activeTab;
           // get url of current active tab
           var url = curTab.url;
-          // add proxy url to current url and reload.
-          curTab.url = addUrl(url);
-      }
-    }
-
-    // Function to perform for the validating of command.
-    function validateCommand(event){
-      // make sure the command is useProxy been clicked.
-      if (event.command == "useProxy"){
-        // to check the current url is a valid journal website.
-        var enCommand = validateUrl(selectedProxy, event.target.browerWindow.activeTab.url);
-        // to check if you are out of campus
-        // enCommand = enCommand && varlidateIP(selectedProxy);
-        event.target.disabled = enCommand;
+          // manually load proxy as long as the url is not empty
+          // and proxy is not added.
+          if (url && url.indexOf(proxyDomain) <= -1){
+            curTab.url = addProxyUrl(url);
+          }
       }
     }
 
