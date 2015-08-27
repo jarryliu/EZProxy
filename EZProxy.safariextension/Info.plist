@@ -9,17 +9,49 @@
 	<key>CFBundleDisplayName</key>
 	<string>EZProxy</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.liujarry.ezproxy</string>
+	<string>com.jarryliu.ezproxy</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1</string>
+	<string>0.2</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>Chrome</key>
 	<dict>
+		<key>Database Quota</key>
+		<integer>5242880</integer>
 		<key>Global Page</key>
 		<string>global.html</string>
+		<key>Menus</key>
+		<array>
+			<dict>
+				<key>Identifier</key>
+				<string>proxyMenu</string>
+				<key>Menu Items</key>
+				<array>
+					<dict>
+						<key>Checked State</key>
+						<integer>0</integer>
+						<key>Command</key>
+						<string>enableAuto</string>
+						<key>Identifier</key>
+						<string>enable_auto</string>
+						<key>Title</key>
+						<string>Enable Automatic Load</string>
+					</dict>
+					<dict>
+						<key>Checked State</key>
+						<integer>1</integer>
+						<key>Command</key>
+						<string>enableButton</string>
+						<key>Identifier</key>
+						<string>enable_button</string>
+						<key>Title</key>
+						<string>Enable Manual Load</string>
+					</dict>
+				</array>
+			</dict>
+		</array>
 		<key>Toolbar Items</key>
 		<array>
 			<dict>
@@ -33,6 +65,8 @@
 				<true/>
 				<key>Label</key>
 				<string>EZProxy</string>
+				<key>Menu</key>
+				<string>proxyMenu</string>
 				<key>Palette Label</key>
 				<string>EZProxy</string>
 				<key>Tool Tip</key>

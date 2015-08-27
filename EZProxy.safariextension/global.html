@@ -8,25 +8,36 @@
   <script type="text/javascript">
 
     // add listener to command and validate.
-    safari.application.addEventListener("navigate", autoReload, false);
+    safari.application.addEventListener("beforeNavigate", autoReload, false);
     safari.application.addEventListener("command", performCommand, false);
+    safari.application.addEventListener("menu", performMenu, false);
 
     // set for the default proxy, default proxy is WUSTL.
     var selectedProxy = defaultProxy;
     var proxyUrl = proxyList[selectedProxy];
     var proxyDomain = proxyUrl;
 
+    var settings = {auto:0, button:1};
+
+    function updateSettings(newSettings) {
+        Object.keys(newSettings).forEach(function(newSetting) {
+            safari.extension.settings[newSetting] = newSettings[newSetting];
+        });
+        settings = safari.extension.settings;
+        //onSettingsUpdated()
+    }
+
     function autoReload(event){
       //load proxy only in journal sites.
-      if (validateUrl(selectedProxy, event.target.url)){
-        event.target.url = addProxyUrl(event.target.url);
+      if (settings.autorun && validateUrl(selectedProxy, event.url)){
+        event.target.url = addProxyUrl(event.url);
       }
     }
 
     // Function to perform when event is received
     function performCommand(event) {
       // Make sure event comes from the button
-      if (event.command === "useProxy") {
+      if (settings.button &&  event.command === "useProxy") {
           // get current active tab 
           var curTab = event.target.browserWindow.activeTab;
           // get url of current active tab
@@ -36,6 +47,25 @@
           if (url && url.indexOf(proxyDomain) <= -1){
             curTab.url = addProxyUrl(url);
           }
+          console.log(event);
+      }
+      else if (event.command === "enableAuto"){
+        var change = event.target.checkedState == event.target.CHECKED ? event.target.UNCHECKED : event.target.CHECKED
+        event.target.checkedState = change;
+        updateSettings({autorun: change});
+      }
+      else if (event.command === "enableButton"){
+        var change = event.target.checkedState == event.target.CHECKED ? event.target.UNCHECKED : event.target.CHECKED
+        event.target.checkedState = change;
+        updateSettings({button: change});
+      }
+    }
+
+    function performMenu(event){
+      if (event.target.identifier === "proxyMenu"){
+        event.target.menuItems[0].checkedState = settings.autorun;
+        event.target.menuItems[1].checkedState = settings.button;
+        console.log(event);
       }
     }
 
