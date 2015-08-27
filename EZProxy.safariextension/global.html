@@ -16,6 +16,7 @@
     var selectedProxy = defaultProxy;
     var proxyUrl = proxyList[selectedProxy];
     var proxyDomain = proxyUrl;
+    var previousUrl;
 
     var settings = {auto:0, button:1};
 
@@ -29,8 +30,11 @@
 
     function autoReload(event){
       //load proxy only in journal sites.
-      if (settings.autorun && validateUrl(selectedProxy, event.url)){
-        event.target.url = addProxyUrl(event.url);
+      if (previousUrl && previousUrl != event.url){
+        if (settings.autorun && validateUrl(selectedProxy, event.url)){
+          event.target.url = addProxyUrl(event.url);
+        }
+        previousUrl = event.url
       }
     }
 
