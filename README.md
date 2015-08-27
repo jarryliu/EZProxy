@@ -4,7 +4,7 @@ A safari extension for automatic load journal sites with EZProxy.
 ##How to use:
 1. checkout the github: 
 
->`git clone https://github.com/jarryliu/EZProxy.git`
+  git clone https://github.com/jarryliu/EZProxy.git
 
 2. Enable Develop menu in menu bar, Preferences->Advance->Show Develop menu in menu bar.
 3. Open Extension Builder in menu, Develop->Show Extension Builder.
