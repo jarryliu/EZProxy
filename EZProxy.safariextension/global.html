@@ -8,7 +8,7 @@
   <script type="text/javascript">
 
     // add listener to command and validate.
-    safari.application.addEventListener("beforeNavigate", autoReload, false);
+    safari.application.addEventListener("navigate", autoReload, false);
     safari.application.addEventListener("command", performCommand, false);
     safari.application.addEventListener("menu", performMenu, false);
 
