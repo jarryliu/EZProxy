@@ -20,7 +20,6 @@ A safari extension for automatic load journal sites with EZProxy.
 2. If manually load proxy is enabled, click the toolbar button to manually load link with proxy 
 3. If automatically load proxy is enabled, a known journal site will be loaded with proxy automatically.
 
-
 ###Version Log
 -------------------
 ####v0.1, Date: Aug 26, 2015
