@@ -12,7 +12,7 @@ A safari extension for automatic load journal sites with EZProxy.
 3. Open Extension Builder in menu, `Develop->Show Extension Builder`.
 4. Add Extension, select the directory `EZProxy.safariextension`.
 5. Click install and input your password.
-6. Read to go.
+6. Ready to go.
 
 ###How to use:
 -------------------
