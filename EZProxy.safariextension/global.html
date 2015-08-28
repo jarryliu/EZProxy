@@ -30,11 +30,13 @@
 
     function autoReload(event){
       //load proxy only in journal sites.
-      if (previousUrl && previousUrl != event.url){
-        if (settings.autorun && validateUrl(selectedProxy, event.url)){
-          event.target.url = addProxyUrl(event.url);
+      if (!previousUrl || previousUrl != event.target.url){
+        if (settings.autorun && validateUrl(selectedProxy, event.target.url)){
+          event.target.url = addProxyUrl(event.target.url);
+          //console.log(event);
+          //console.log(previousUrl);
+          previousUrl = event.target.url;
         }
-        previousUrl = event.url
       }
     }
 
@@ -51,7 +53,7 @@
           if (url && url.indexOf(proxyDomain) <= -1){
             curTab.url = addProxyUrl(url);
           }
-          console.log(event);
+          //console.log(event);
       }
       else if (event.command === "enableAuto"){
         var change = event.target.checkedState == event.target.CHECKED ? event.target.UNCHECKED : event.target.CHECKED
@@ -69,7 +71,7 @@
       if (event.target.identifier === "proxyMenu"){
         event.target.menuItems[0].checkedState = settings.autorun;
         event.target.menuItems[1].checkedState = settings.button;
-        console.log(event);
+        //console.log(event);
       }
     }
 
