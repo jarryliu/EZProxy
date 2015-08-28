@@ -16,9 +16,10 @@ A safari extension for automatic load journal sites with EZProxy.
 
 ###How to use:
 -------------------
-1. Click the toolbar button to manually load link with proxy 
-2. Click and hold the toolbar to open the menu, then click to enable/disable automatic/manual proxy loading.
-3. After automatic load proxy is enabled, a known journal site will be loaded with proxy automatically.
+1. To change the settings, click and hold the toolbar to open the menu, or go to `Preferences->Extension->EZProxy`.
+2. If manually load proxy is enabled, click the toolbar button to manually load link with proxy 
+3. If automatically load proxy is enabled, a known journal site will be loaded with proxy automatically.
+
 
 ###Version Log
 -------------------

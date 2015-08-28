@@ -10,7 +10,7 @@
 		<key>Key</key>
 		<string>autorun</string>
 		<key>Title</key>
-		<string>Automatically load proxy</string>
+		<string>Enable Automatic Proxy Load</string>
 		<key>TrueValue</key>
 		<string>1</string>
 		<key>Type</key>
@@ -24,7 +24,7 @@
 		<key>Key</key>
 		<string>button</string>
 		<key>Title</key>
-		<string>Manually click to load proxy</string>
+		<string>Enable Manual Proxy Load</string>
 		<key>TrueValue</key>
 		<string>1</string>
 		<key>Type</key>
