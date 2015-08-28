@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>DefaultValue</key>
+		<string>0</string>
+		<key>FalseValue</key>
+		<string>0</string>
+		<key>Key</key>
+		<string>autorun</string>
+		<key>Title</key>
+		<string>Enable Automatic Proxy Load</string>
+		<key>TrueValue</key>
+		<string>1</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<string>1</string>
+		<key>FalseValue</key>
+		<string>0</string>
+		<key>Key</key>
+		<string>button</string>
+		<key>Title</key>
+		<string>Enable Manual Proxy Load</string>
+		<key>TrueValue</key>
+		<string>1</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+</array>
+</plist>
