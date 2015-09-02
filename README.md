@@ -1,6 +1,7 @@
 ## EZProxy
 ----------------
 A safari extension for automatic load journal sites with EZProxy. 
+
 (Only support for WUSTL Proxy for current version)
 
 ###How to Install:
