@@ -24,11 +24,12 @@ A safari extension for automatic load journal sites with EZProxy.
 
 ###Version Log
 -------------------
+####v0.2, Date: Aug 28, 2015
+1. Add Menu for enabling/disabling automatic and manual proxy loading.
+2. Solve the bug of infinite loading in campus network (where proxy link will be directed to original link).
+
 ####v0.1, Date: Aug 26, 2015
 1. Click the button to manually use EZProxy
 2. Automaticly load proxy after load for common journal sites (support by WUSTL) like acm, ieee, etc.
 3. Only support for WUSTL EZProxy
 
-####v0.2, Date: Aug 28, 2015
-1. Add Menu for enabling/disabling automatic and manual proxy loading.
-2. Solve the bug of infinite loading in campus network (where proxy link will be directed to original link).
