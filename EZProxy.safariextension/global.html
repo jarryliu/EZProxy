@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>WashU Proxy</title>
-  <script src="scripts/proxy.js" type="text/javascript"></script>
+  <script src="scripts/proxies.json" type="text/javascript"></script>
   <script src="scripts/journals.js" type="text/javascript"></script>
   <script src="scripts/util.js" type="text/javascript"></script>
   <script type="text/javascript">
@@ -11,14 +11,26 @@
     safari.application.addEventListener("navigate", autoReload, false);
     safari.application.addEventListener("command", performCommand, false);
     safari.application.addEventListener("menu", performMenu, false);
+    safari.extension.settings.addEventListener("change", changeSettings, false);
 
     // set for the default proxy, default proxy is WUSTL.
-    var selectedProxy = defaultProxy;
-    var proxyUrl = proxyList[selectedProxy];
-    var proxyDomain = proxyUrl;
+    var defaultProxy = "Washington University in St. Louis";
+    var proxyDomain = "libproxy.wustl.edu";
     var previousUrl;
+    
 
-    var settings = {auto:0, button:1};
+    var settings = {auto:0, button:1, proxyName:defaultProxy};
+
+    //j = 0
+    //for (var i in proxyList){
+    //  safari.settings.proxyName.setItem(i["name"], j++);
+    //}
+
+    function changeSettings(event){
+      settings = safari.extension.settings
+      proxyDomain = extractDomain(proxyList[settings.proxyName]["url"]);
+      console.log(safari.extension.settings.getItem("proxyName"))
+    }
 
     function updateSettings(newSettings) {
         Object.keys(newSettings).forEach(function(newSetting) {
@@ -31,8 +43,8 @@
     function autoReload(event){
       //load proxy only in journal sites.
       if (!previousUrl || previousUrl != event.target.url){
-        if (settings.autorun && validateUrl(selectedProxy, event.target.url)){
-          event.target.url = addProxyUrl(event.target.url);
+        if (settings.autorun && validateUrl(event.target.url)){
+          event.target.url = addProxyUrl(event.target.url, proxyDomain);
           //console.log(event);
           //console.log(previousUrl);
           previousUrl = event.target.url;
@@ -51,7 +63,7 @@
           // manually load proxy as long as the url is not empty
           // and proxy is not added.
           if (url && url.indexOf(proxyDomain) <= -1){
-            curTab.url = addProxyUrl(url);
+            curTab.url = addProxyUrl(url,proxyDomain);
           }
           //console.log(event);
       }

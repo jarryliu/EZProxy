@@ -30,5 +30,27 @@
 		<key>Type</key>
 		<string>CheckBox</string>
 	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<string>0</string>
+		<key>Key</key>
+		<string>proxyName</string>
+		<key>Secure</key>
+		<false/>
+		<key>Title</key>
+		<string>Choose Proxy</string>
+		<key>Titles</key>
+		<array>
+			<string>Washington University in St. Louis</string>
+			<string>Baylor University</string>
+		</array>
+		<key>Type</key>
+		<string>PopUpButton</string>
+		<key>Values</key>
+		<array>
+			<string>0</string>
+			<string>1</string>
+		</array>
+	</dict>
 </array>
 </plist>

@@ -1,8 +1,8 @@
 
 
-function addProxyUrl(url) {
+function addProxyUrl(url, proxyDomain) {
   var domain = extractDomain(url);
-  return url.replace(domain, domain + "." + proxyUrl);
+  return url.replace(domain, domain + "." + proxyDomain);
 }
 
 function extractDomain(url) {
@@ -25,10 +25,7 @@ function extractDomain(url) {
 }
 
 // return true if the url is journal sites.
-function validateUrl(proxy, url) {
-  // check if it's empty or already has proxy
-  if (!url || url.indexOf(proxyList[proxy]) >= 0)
-    return false;
+function validateUrl(url) {
   var domain = extractDomain(url);
   //  check if it's in the journal site list 
   return proxy_journals.hasOwnProperty(extractDomain(url));
